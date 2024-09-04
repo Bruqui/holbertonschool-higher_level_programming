@@ -23,4 +23,4 @@ if __name__ == '__main__':
         if argv[2] == "*":
             print("{} * {} = {}".format(a, b, mul(a, b)))
         if argv[2] == "/":
-            print("{} / {} = {}".format(a, b, div(a, b))
+            print("{} / {} = {}".format(a, b, div(a, b)))
