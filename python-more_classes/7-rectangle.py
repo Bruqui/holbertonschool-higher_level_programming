@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
+Module 7-rectangle
 Defines a Rectangle class with private attributes width and height,
-public methods for area and perimeter, string representation using
-a customizable symbol, a class attribute to track the number of instances,
-and prints a message on deletion.
+public methods for area and perimeter, string representation using a
+customizable symbol, a class attribute to track the number of instances,
+and prints a message on deletion
 """
 
 
@@ -11,6 +12,7 @@ class Rectangle:
     """
     Defines a rectangle with private instance attributes width and height
     """
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -27,7 +29,9 @@ class Rectangle:
 
     @property
     def width(self):
-        """Gets the width of the rectangle"""
+        """
+        Gets the width of the rectangle
+        """
         return self.__width
 
     @width.setter
@@ -48,7 +52,9 @@ class Rectangle:
 
     @property
     def height(self):
-        """Gets the height of the rectangle"""
+        """
+        Gets the height of the rectangle
+        """
         return self.__height
 
     @height.setter
@@ -84,24 +90,25 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns a string representation of the rectangle using the characters
-        stored in print_symbol.
-        If width or height is 0, returns an empty string.
+        Returns a string representation of the rectangle using the character(s)
+        stored in print_symbol
+        If width or height is 0, returns an empty string
         """
         if self.__width == 0 or self.__height == 0:
             return ""
         return "\n".join([str(self.print_symbol) * self.__width
-            for _ in range(self.__height)])
+                          for _ in range(self.__height)])
+
     def __repr__(self):
         """
         Returns a string representation of the rectangle that can be used
-        to recreate a new instance with eval().
+        to recreate a new instance with eval()
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """
-        Prints a message when an instance of Rectangle is deleted.
+        Prints a message when an instance of Rectangle is deleted
         """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
