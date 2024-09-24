@@ -4,7 +4,7 @@ Module that defines a class BaseGeometry with methods for geometry calculations.
 """
 
 
-class BaseGeometry:
+class BaseGeometry():
     """
     Class representing BaseGeometry.
     """
@@ -25,7 +25,7 @@ class BaseGeometry:
             TypeError: If value is not an integer.
             ValueError: If value is less than or equal to 0.
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
