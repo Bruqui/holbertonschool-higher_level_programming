@@ -1,9 +1,3 @@
-The ``7-base_geometry`` module
-==============================
-
-Using ``BaseGeometry``
-----------------------
-
 Importing class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
@@ -28,7 +22,7 @@ Trying to pass a boolean value
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", True)
     Traceback (most recent call last):
-    	      ...
+	      ...
     TypeError: name must be an integer
 
 
