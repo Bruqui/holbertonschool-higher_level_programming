@@ -59,6 +59,7 @@ class Circle(Shape):
         """
         return 2 * math.pi * self.radius
 
+
 class Rectangle(Shape):
     """
     Rectangle class that represents a rectangle.
@@ -92,6 +93,7 @@ class Rectangle(Shape):
             float: The perimeter of the rectangle.
         """
         return 2 * (self.width + self.height)
+
 
 def shape_info(shape):
     """
