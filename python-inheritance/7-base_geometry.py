@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module that defines a class BaseGeometry with methods for geometry 
+Module that defines a class BaseGeometry with methods for geometry
 calculations.
 """
 
