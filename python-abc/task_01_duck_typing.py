@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from abc import ABC, abstractmethod
-import math
+from math import pi
 
 
 class Shape(ABC):
@@ -49,7 +49,7 @@ class Circle(Shape):
         Returns:
             float: The area of the circle.
         """
-        return math.pi * self.radius ** 2
+        return pi * self.radius ** 2
 
     def perimeter(self):
         """
@@ -57,7 +57,7 @@ class Circle(Shape):
         Returns:
             float: The perimeter of the circle.
         """
-        return 2 * math.pi * self.radius
+        return 2 * pi * abs(self.radius)
 
 
 class Rectangle(Shape):
@@ -104,5 +104,5 @@ def shape_info(shape):
         shape (Shape): An object that implements the Shape interface (i.e.,
         has 'area' and 'perimeter' methods).
     """
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    print("Area:", shape.area())
+    print("Perimeter:", shape.perimeter())
