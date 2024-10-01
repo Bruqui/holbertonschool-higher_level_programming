@@ -2,7 +2,7 @@
 """
 This module provides basic serialization and deserialization functionality.
 """
-import pickle
+import json
 
 
 def serialize_and_save_to_file(data, filename):
@@ -13,8 +13,8 @@ def serialize_and_save_to_file(data, filename):
         filename (str): The name of the file where the serialized data will
         be stored.
     """
-    with open(filename, 'wb') as f:
-        pickle.dump(data, f)
+    with open(filename, 'w') as json_file:
+        json.dump(data, json_file)
 
 
 def load_and_deserialize(filename):
@@ -26,5 +26,6 @@ def load_and_deserialize(filename):
     Returns:
         Any: The deserialized Python object.
     """
-    with open(filename, 'rb') as f:
-        return pickle.load(f)
+    with open(filename, 'r') as json_file:
+        data = json.load(json_file)
+        return data
