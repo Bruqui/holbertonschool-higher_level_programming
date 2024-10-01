@@ -37,7 +37,7 @@ class CustomObject:
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
-    
+
     def serialize(self, filename):
         """
         Serializes the current instance of CustomObject and saves it to a
@@ -54,7 +54,7 @@ class CustomObject:
             print(f"Object serialized and saved to '{filename}'.")
         except IOError as e:
             print(f"Error serializing object to '{filename}': {e}")
-    
+
     @classmethod
     def deserialize(cls, filename):
         """
