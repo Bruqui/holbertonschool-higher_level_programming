@@ -43,7 +43,7 @@ class Student:
             }
         return {attr: getattr(self, attr) for attr in attrs
                 if hasattr(self, attr)}
-    
+
     def reload_from_json(self, json):
         """
         Replaces all attributes of the Student instance based on a dictionary.
