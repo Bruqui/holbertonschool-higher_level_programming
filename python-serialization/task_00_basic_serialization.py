@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import pickle
 
+
 def serialize_and_save_to_file(data, filename):
     """
     Serialize the given data and save it to a file.
@@ -11,6 +12,7 @@ def serialize_and_save_to_file(data, filename):
     """
     with open(filename, 'wb') as f:
         pickle.dump(data, f)
+
 
 def load_and_deserialize(filename):
     """
