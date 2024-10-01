@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module provides basic serialization and deserialization functionality.
+"""
 import pickle
 
 
