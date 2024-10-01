@@ -34,9 +34,9 @@ class CustomObject:
         Prints the attributes of the CustomObject instance in a readable
         format.
         """
-        print(f"name: {self.name}")
-        print(f"age: {self.age}")
-        print(f"is_student: {self.is_student}")
+        print("name: {}".format(self.name))
+        print("age: {}".format(self.age))
+        print("is_student: {}".format(self.is_student))
 
     def serialize(self, filename):
         """
