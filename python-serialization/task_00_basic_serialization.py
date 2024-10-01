@@ -13,7 +13,7 @@ def serialize_and_save_to_file(data, filename):
     Args:
         data (dict): The Python dictionary to serialize.
         filename (str): The filename where the serialized data will be saved.
-                        If the file already exists, it will be replaced.
+        If the file already exists, it will be replaced.
     Raises:
         IOError: If there is an error writing to the file.
     """
