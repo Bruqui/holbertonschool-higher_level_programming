@@ -1,46 +1,25 @@
 #!/usr/bin/python3
-"""
-This module provides basic serialization and deserialization functionality.
-It allows serializing a Python dictionary into a JSON file and deserializing
-JSON data from a file back into a Python dictionary.
-"""
-import json
-
+import pickle
 
 def serialize_and_save_to_file(data, filename):
     """
-    Serializes a Python dictionary to a JSON file and saves it.
+    Serialize the given data and save it to a file.
     Args:
-        data (dict): The Python dictionary to serialize.
-        filename (str): The filename where the serialized data will be saved.
-        If the file already exists, it will be replaced.
-    Raises:
-        IOError: If there is an error writing to the file.
+        data (Any): The Python object to be serialized.
+        filename (str): The name of the file where the serialized data will
+        be stored.
     """
-    try:
-        with open(filename, 'w') as file:
-            json.dump(data, file)
-        print(f"Data has been serialized and saved to '{filename}'.")
-    except IOError as e:
-        print(f"An error occurred while saving data to '{filename}': {e}")
-
+    with open(filename, 'wb') as f:
+        pickle.dump(data, f)
 
 def load_and_deserialize(filename):
     """
-    Loads and deserializes data from a JSON file back into a Python dictionary
+    Load and deserialize data from a file.
     Args:
-        filename (str): The name of the file containing the JSON data.
+        filename (str): The name of the file from which the serialized data
+        will be loaded.
     Returns:
-        dict: A Python dictionary with the deserialized data.
-    Raises:
-        IOError: If there is an error reading from the file.
-        json.JSONDecodeError: If the file is not valid JSON.
+        Any: The deserialized Python object.
     """
-    try:
-        with open(filename, 'r') as file:
-            data = json.load(file)
-        return data
-    except IOError as e:
-        print(f"An error occurred while loading data from '{filename}': {e}")
-    except json.JSONDecodeError as e:
-        print(f"An error occurred while decoding JSON from '{filename}': {e}")
+    with open(filename, 'rb') as f:
+        return pickle.load(f)
