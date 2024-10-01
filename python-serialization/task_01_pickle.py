@@ -34,9 +34,9 @@ class CustomObject:
         Prints the attributes of the CustomObject instance in a readable
         format.
         """
-        print("name: {}".format(self.name))
-        print("age: {}".format(self.age))
-        print("is_student: {}".format(self.is_student))
+        print("Name: {}".format(self.name))
+        print("Age: {}".format(self.age))
+        print("Is Student: {}".format(self.is_student))
 
     def serialize(self, filename):
         """
@@ -48,8 +48,11 @@ class CustomObject:
         Raises:
             IOError: If an error occurs while writing to the file.
         """
-        with open(filename, 'wb') as f:
-            pickle.dump(self, f)
+        try:
+            with open(filename, 'wb') as f:
+                pickle.dump(self, f)
+        except Exception:
+            return
 
     @classmethod
     def deserialize(cls, filename):
@@ -66,5 +69,8 @@ class CustomObject:
             pickle.UnpicklingError: If the file contains malformed or invalid
                                     data.
         """
-        with open(filename, 'rb') as f:
-            return pickle.load(f)
+        try:
+            with open(filename, 'rb') as f:
+                return pickle.load(f)
+        except Exception as e:
+            return None
