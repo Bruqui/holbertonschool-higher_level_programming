@@ -1,9 +1,8 @@
 import http.server
 import json
-from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     """
     A simple HTTP request handler to demonstrate how to handle GET requests
     and serve text and JSON responses using Python's http.server module.
