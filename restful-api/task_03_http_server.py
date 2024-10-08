@@ -16,45 +16,36 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         will respond with either a text message, JSON data, or an error
         message.
         """
-        if self.path == '/':
-            self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(b'Hello, this is a simple API!')
-        
-        elif self.path == '/data':
+        if self.path == '/data':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            data = {"name": "John", "age": 30, "city": "New York"}
-            json_data = json.dumps(data)
-            self.wfile.write(json_data.encode('utf-8'))
+            data = json.dumps({"name": "John", "age": 30, "city": "New York"})
+            self.wfile.write(data.encode())
         
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            status_data = {"status": "OK"}
-            json_data = json.dumps(status_data)
-            self.wfile.write(json_data.encode('utf-8'))
+            self.wfile.write("OK".encode())
+        
+        elif self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write("Hello, this is a simple API!".encode())
         
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            error_data = {"error": "Endpoint not found"}
-            json_data = json.dumps(error_data)
-            self.wfile.write(json_data.encode('utf-8'))
+            self.wfile.write("404 Not Found".encode())
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
-        port=8000):
-    """
-    Starts the HTTP server on the specified port and binds it to the given
-    handler class to manage incoming requests.
-    """
+def run(server_class=http.server.HTTPServer,
+        handler_class=SimpleHTTPRequestHandler, port=8000):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print(f'Server running on port {port}...')
+    print(f"Starting httpd server on {port}")
     httpd.serve_forever()
 
 if __name__ == "__main__":
