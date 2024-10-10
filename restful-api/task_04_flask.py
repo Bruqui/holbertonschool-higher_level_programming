@@ -14,14 +14,14 @@ def home():
     return "Welcome to the Flask API!"
 
 
-@app.route('/status')
-def status():
-    return "OK"
-
-
 @app.route('/data')
 def data():
     return jsonify(list(users.keys()))
+
+
+@app.route('/status')
+def status():
+    return "OK"
 
 
 @app.route('/users/<username>')
