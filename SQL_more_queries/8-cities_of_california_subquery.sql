@@ -3,6 +3,6 @@
 -- The state is identified by its id, which is retrieved from the 'states' table.
 -- The results are ordered by the 'id' column in ascending order.
 
-SELECT *
+SELECT id, name
 FROM cities
 WHERE state_id = (SELECT id FROM states WHERE name = 'California');
