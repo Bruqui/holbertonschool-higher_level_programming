@@ -1,17 +1,12 @@
--- Creates a new user 'user_0d_1' with access restricted to 'localhost' if it doesn't already exist.
--- The 'IDENTIFIED BY' clause sets the user's password to 'user_0d_1_pwd'.
--- This command ensures that the user is created only once, avoiding errors if the user already exists.
+-- Creates a new user 'user_0d_1' with host access limited to 'localhost'.
+-- The 'IF NOT EXISTS' clause ensures that no error is thrown if the user already exists.
+-- The user is assigned a password ('user_0d_1_pwd') for authentication.
 
 CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
 
--- Grants all privileges on all databases and tables to 'user_0d_1'@'localhost'.
--- The 'WITH GRANT OPTION' allows 'user_0d_1' to grant these privileges to other users.
--- This command effectively gives the user full administrative rights within the database server.
+-- Grants all privileges on all databases and tables to 'user_0d_1' when connecting from 'localhost'.
+-- The 'ALL PRIVILEGES' keyword allows the user full access, including the ability to SELECT, INSERT, 
+-- UPDATE, DELETE, CREATE, DROP, and more across the entire MySQL server.
+-- This is typically used for administrative users.
 
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
-
--- Refreshes the in-memory privileges, ensuring all recent changes (like new users or updated permissions)
--- take immediate effect without restarting the server.
--- This command is typically used after modifying user privileges.
-
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
