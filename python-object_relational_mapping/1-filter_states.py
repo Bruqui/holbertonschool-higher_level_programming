@@ -34,13 +34,13 @@ def main():
 
     cursor = db.cursor()
 
-    cursor.execute(
-        "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
     results = cursor.fetchall()
 
     for row in results:
-        print(row)
+        if ('N' in row[1]):
+            print(row)
 
     cursor.close()
     db.close()
