@@ -9,6 +9,7 @@ by their IDs and displayed in a specific format.
 import MySQLdb
 import sys
 
+
 def main():
     """
     The main function that executes the logic to connect to the MySQL
@@ -38,9 +39,10 @@ def main():
 
     for row in results:
         print(row)
-    
+
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()
