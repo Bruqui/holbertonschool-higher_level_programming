@@ -1,8 +1,23 @@
 #!/usr/bin/python3
+
+"""
+This module connects to a MySQL database and retrieves all states
+from the specified database. The states are sorted in ascending order
+by their IDs and displayed in a specific format.
+"""
+
 import MySQLdb
 import sys
 
 def main():
+    """
+    The main function that executes the logic to connect to the MySQL
+    database and retrieve states. It takes three command-line arguments:
+    MySQL username, password, and database name. It connects to the
+    database and executes a SQL query to select and print all states
+    sorted by their ID in ascending order.
+    """
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
