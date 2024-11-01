@@ -10,6 +10,7 @@ list of city names.
 import MySQLdb
 import sys
 
+
 def main():
     """
     The main function that executes the logic to connect to the MySQL
