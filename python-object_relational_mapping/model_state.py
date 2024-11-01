@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Defines the State class and a Base instance to map to the states table in a MySQL database.
+Defines the State class and a Base instance to map to the states table
+in a MySQL database.
 """
 
 from sqlalchemy import Column, Integer, String, create_engine
