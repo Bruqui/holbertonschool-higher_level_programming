@@ -48,7 +48,7 @@ def main():
 
     for row in results:
         print(row)
-    
+
     cursor.close()
     db.close()
 
