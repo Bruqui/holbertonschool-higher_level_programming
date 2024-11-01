@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def main():
     """
     Connects to the MySQL database and retrieves all State objects
@@ -28,7 +29,8 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states_with_a = session.query(State).filter(
+        State.name.like('%a%')).order_by(State.id).all()
 
     for state in states_with_a:
         print(f"{state.id}: {state.name}")
