@@ -35,7 +35,7 @@ def main():
         print(f"{first_state.id}: {first_state.name}")
     else:
         print("Nothing")
-    
+
     session.close()
 
 
