@@ -5,7 +5,7 @@ This module defines a City class that is mapped to the cities table in a MySQL d
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from model_state import Base
+from .model_state import Base
 
 
 class City(Base):

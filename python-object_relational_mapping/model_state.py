@@ -7,7 +7,7 @@ in a MySQL database.
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from model_city import City
+from .model_city import City
 
 Base = declarative_base()
 
