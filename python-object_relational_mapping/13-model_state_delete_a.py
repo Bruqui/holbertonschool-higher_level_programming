@@ -12,7 +12,7 @@ from model_state import Base, State
 
 def main():
     """
-    Connects to the MySQL database, finds State objects with 
+    Connects to the MySQL database, finds State objects with
     names containing 'a', deletes them, and commits the changes.
     """
 
@@ -31,7 +31,7 @@ def main():
 
     states_to_delete = session.query(State).filter(State.name.like(
         '%a%')).all()
-    
+
     for state in states_to_delete:
         session.delete(state)
 
