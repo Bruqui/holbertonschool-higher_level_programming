@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a City class that is mapped to the cities table in a MySQL database.
+This module defines a City class that is mapped to the cities table in a MySQL
+database.
 """
 
 from model_state import Base
