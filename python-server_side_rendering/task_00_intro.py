@@ -1,41 +1,34 @@
-import logging
-import os
-from collections import defaultdict
-
-class DefaultDict(defaultdict):
-    def __missing__(self, key):
-        return f"{key}: N/A"
+#!/usr/bin/python3
 
 def generate_invitations(template, attendees):
-    if not isinstance(template, str):
-        logging.error(f"Invalid input type for template: Expected str, got {type(template).__name__}")
-        return
-
-    if not (isinstance(attendees, list) and all(isinstance(attendee, dict) for attendee in attendees)):
-        logging.error(f"Invalid input type for attendees: Expected list of dictionaries, got {type(attendees).__name__}")
-        return
-
-    if not (isinstance(attendees, list) and all(isinstance(attendee, dict) for attendee in attendees)):
-        raise TypeError("attendees must be a list of dictionaries")
-
-    for index, attendee in enumerate(attendees, start=1):
-        safe_attendee = DefaultDict(lambda: "N/A", attendee)
-        
-        invitation = template
-        for key in safe_attendee:
-            placeholder = f"{{{key}}}"
-            if placeholder in template:
-                invitation = invitation.replace(placeholder, f"{safe_attendee[key]}")
-            else:
-                invitation += f"\n{key}: {safe_attendee[key]}"
-
-        filename = f"output_{index}.txt"
-        try:
-            if os.path.exists(filename):
-                logging.warning(f"File {filename} already exists. Skipping to avoid overwriting.")
-                continue
-
-            with open(filename, "w") as file:
-                file.write(invitation)
-        except IOError as e:
-            logging.error(f"Failed to write to {filename}: {e}")
+	if not isinstance(template, str):
+		print("The argument 'template' must be a string.")
+		return
+	if len(template) == 0:
+		print("Template is empty, no output files generated.")
+		return
+	if not isinstance(attendees, list):
+		print("The argument 'attendees' must be a list of dictionaries.")
+	else:
+		if len(attendees) == 0:
+			print("No data provided, no output files generated.")
+		elif not isinstance(attendees[0], dict):
+			print("The argument 'attendees' must be a list of dictionaries.")
+			return
+	
+	try:
+		for i in range(0, len(attendees)):
+			invitation = template
+			keys = ["name", "event_title", "event_date", "event_location"]
+			for k in keys:
+				placeholder = "{" + k + "}"
+				replaced_by = attendees[i].get(k)
+				if replaced_by == None:
+					replaced_by = "N/A"
+				invitation = invitation.replace(placeholder, replaced_by)
+				print(invitation)
+			output = "output_{}.txt".format(i + 1)
+			with open(output, 'w') as file:
+				file.write(invitation)
+	except Exception as e:
+		print("{}".format(e))
